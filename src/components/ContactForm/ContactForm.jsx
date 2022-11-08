@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 import { Formik } from 'formik';
-import schema from './schema';
+import { schemaContact } from './schema';
 import { notify } from 'components/Notify/notify';
 import { ToastContainer, Flip } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -46,7 +46,7 @@ function ContactForm() {
 
   return (
     <Formik
-      validationSchema={schema}
+      validationSchema={schemaContact}
       initialValues={{ name, number }}
       onSubmit={handleSubmit}
     >

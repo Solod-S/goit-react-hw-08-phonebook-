@@ -11,7 +11,7 @@ export const StyledLink = styled(NavLink)`
   transition: color 0.2s ease-in-out;
   ::after {
     content: '';
-    width: 65%;
+    width: calc(100% - 40px);
     height: 3px;
     opacity: 0;
     background-color: ${p => p.theme.colors.secondaryText};

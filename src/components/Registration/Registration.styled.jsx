@@ -1,44 +1,45 @@
 import styled from 'styled-components';
-import { Form, Field } from 'formik';
-export const ContactsForm = styled(Form)`
-  /* margin-bottom: ${p => p.theme.space[5]}px; */
-`;
-
-export const ListForContactsForm = styled.ul`
-  display: flex;
-  flex-direction: column;
+import { Form, Field, ErrorMessage } from 'formik';
+export const RegistrationForm = styled(Form)`
+  width: 80%;
   margin-bottom: ${p => p.theme.space[5]}px;
 `;
-export const ItemsForContactsForm = styled.li`
+
+export const ListForRegistrationForm = styled.ul`
+  display: flex;
+  flex-direction: column;
+  margin-bottom: ${p => p.theme.space[4]}px;
+`;
+export const ItemsForRegistrationForm = styled.li`
   display: flex;
   flex-direction: column;
   :not(:last-child) {
     margin-bottom: ${p => p.theme.space[3]}px;
   }
 `;
-export const InputForContactsForm = styled(Field)`
+export const InputForRegistrationForm = styled(Field)`
   color: ${p => p.theme.colors.primaryText};
   font-family: ${p => p.theme.fontFamily.roboto};
   font-size: ${p => p.theme.fontSizes.m};
 
   height: 20px;
   cursor: pointer;
-  transition: outline 250ms linear, color 250ms linear, color 250ms linear;
+  transition: outline 250ms linear, color 250ms linear;
   :hover,
   :focus {
     /* color: ${p => p.theme.colors.hoverBtnColor}; */
     outline: 1px solid ${p => p.theme.colors.hoverBtnColor};
   }
 `;
-export const LabelForContactsForm = styled.label`
+export const LabelForRegistrationForm = styled.label`
   color: ${p => p.theme.colors.primaryText};
   font-family: ${p => p.theme.fontFamily.roboto};
-  font-size: 20px;
+  font-size: ${p => p.theme.fontSizes.m};
   font-weight: ${p => p.theme.fontWeight.bolt};
   cursor: pointer;
-  margin-bottom: ${p => p.theme.space[3]}px;
+  margin-bottom: ${p => p.theme.space[2]}px;
 `;
-export const ButtonForContactsForm = styled.button`
+export const ButtonForRegistrationForm = styled.button`
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -56,4 +57,9 @@ export const ButtonForContactsForm = styled.button`
     outline: 1px solid ${p => p.theme.colors.hoverBtnColor};
     transform: scale(1.1);
   }
+`;
+export const ErrorForRegistrationForm = styled(ErrorMessage)`
+  color: ${p => p.theme.colors.errorMsgColor};
+  font-family: ${p => p.theme.fontFamily.roboto};
+  font-size: ${p => p.theme.fontSizes.s};
 `;

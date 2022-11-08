@@ -41,4 +41,7 @@ export const notify = toShown => {
       notifictationOptions.success
     );
   }
+  if (toShown === 'wellcome') {
+    return toast.success(' Wellcome!', notifictationOptions.success);
+  }
 };
