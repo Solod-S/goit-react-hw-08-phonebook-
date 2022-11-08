@@ -50,5 +50,3 @@ export const AppImgRigth = styled.img`
   /* max-width: 365px; */
   /* height: auto; */
 `;
-
-export const Footer = styled.footer``;

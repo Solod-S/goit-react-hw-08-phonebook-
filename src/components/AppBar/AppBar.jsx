@@ -12,6 +12,7 @@ export const AppBar = () => {
           <StyledLink end="true" to="/">
             Home
           </StyledLink>
+          <StyledLink to="authentication">Authentication</StyledLink>
         </StyledNav>
       </StyledHeader>
       <Outlet />
