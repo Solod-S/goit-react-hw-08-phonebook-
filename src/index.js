@@ -16,7 +16,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         bg="backGroundColor"
         // display="flex"
         // alignItems="end"
-        minHeight="100vh"
+        height="100vh"
         justifyContent="center"
       >
         <BrowserRouter basename="goit-react-hw-08-phonebook">

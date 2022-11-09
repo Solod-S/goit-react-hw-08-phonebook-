@@ -1,5 +1,3 @@
-// import { useSignupMutation } from 'services/phonebookApi';
-// import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
 import { Formik } from 'formik';
 import { schemaAuth } from 'components/ContactForm/schema';
@@ -22,11 +20,6 @@ import {
   Text,
   ChangeForm,
 } from './Registration.styled';
-
-// import { addToken } from 'components/redux/Actions';
-// import { useDispatch } from 'react-redux';
-// import { toast } from 'react-toastify';
-// import Cookies from 'js-cookie';
 
 export const Registration = ({ setLogInToShown }) => {
   const [name] = useState('');
@@ -51,75 +44,8 @@ export const Registration = ({ setLogInToShown }) => {
     actions.resetForm();
   };
 
-  //   const [signup] = useSignupMutation();
-  //   const navigate = useNavigate();
-  //   const dispatch = useDispatch();
-
-  //   const handleSubmit = async evt => {
-  //     const form = evt.target;
-  //     const {
-  //       name: { value: name },
-  //       email: { value: email },
-  //       password: { value: password },
-  //     } = form;
-
-  //     const credentials = { name, email, password };
-  //     evt.preventDefault();
-  //     await signup(credentials)
-  //       .unwrap()
-  //       .then(({ token }) => Cookies.set('token', token))
-  //       .then(() => navigate('/contacts'))
-  //       .catch(() => {
-  //         toast.warn('User with this email address already exists');
-  //       });
-  //     const token = Cookies.get('token');
-  //     dispatch(addToken(token));
-
-  //     form.reset();
-  //   };
-
   return (
     <>
-      {/* <form
-      //   onSubmit={handleSubmit}
-      >
-        <label>
-          <input
-            type="email"
-            name="email"
-            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
-            title="Please enter your e-mail address (example: characters@characters.domain)"
-            required
-            placeholder=" "
-          />
-          <span>Email</span>
-        </label>
-
-        <label>
-          <input
-            type="text"
-            name="name"
-            title="Please enter your name"
-            required
-            placeholder=" "
-          />
-          <span>Name</span>
-        </label>
-
-        <label>
-          <input
-            type="password"
-            name="password"
-            pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
-            title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
-            required
-            placeholder=" "
-          />
-          <span>Password</span>
-        </label>
-
-        <button type="submit">Sign up</button>
-      </form> */}
       <Title>Sign Up</Title>
       <Formik
         validationSchema={schemaAuth}
@@ -146,11 +72,7 @@ export const Registration = ({ setLogInToShown }) => {
               <Error name="password" component="div" />
             </Items>
           </List>
-          <Button type="submit">
-            {isLoading ? 'Loading...' : 'Submit'}
-
-            {/* {isLoading ? 'Loading...' : 'Add contact'} */}
-          </Button>
+          <Button type="submit">{isLoading ? 'Loading...' : 'Submit'}</Button>
           <ToastContainer
             transition={Flip}
             theme="dark"

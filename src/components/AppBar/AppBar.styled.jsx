@@ -7,6 +7,7 @@ export const Link = styled(NavLink)`
   font-size: 20px;
   font-weight: 700;
   padding: 20px;
+  font-family: ${p => p.theme.fontFamily.roboto};
   color: ${p => p.theme.colors.primaryText};
   transition: color 0.2s ease-in-out;
   ::after {
@@ -39,6 +40,7 @@ export const Header = styled.header`
 `;
 
 export const Nav = styled.nav`
+  position: relative;
   display: flex;
   align-items: baseline;
   justify-content: center;

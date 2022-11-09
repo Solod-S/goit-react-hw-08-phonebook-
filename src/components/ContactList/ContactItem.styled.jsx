@@ -1,8 +1,6 @@
 import styled from 'styled-components';
 export const Item = styled.li`
   display: flex;
-  /* flex-direction: column; */
-  /* justify-content: space-between; */
   align-items: center;
   padding-bottom: ${p => p.theme.space[3]}px;
   border-bottom: 1px solid black;
