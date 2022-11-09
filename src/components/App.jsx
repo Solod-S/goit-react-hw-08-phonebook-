@@ -9,8 +9,8 @@ function App() {
     <>
       <Routes>
         <Route end path="/" element={<AppBar />}>
-          <Route index element={<HomePage />} />
-          {/* <Route index element={<div>Home</div>} /> */}
+          {/* <Route index element={<HomePage />} /> */}
+          <Route index element={<div>Home</div>} />
           <Route path="authentication" element={<AuthenticationPage />} />
           <Route path="contacts" element={<ContactPage />} />
           <Route path="*" element={<Navigate to="/" replace />} />
