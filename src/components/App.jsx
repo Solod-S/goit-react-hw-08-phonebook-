@@ -1,17 +1,17 @@
 import { Route, Routes, Navigate } from 'react-router-dom';
 import { AppBar } from './AppBar/AppBar';
 import AuthenticationPage from 'pages/Authentication/Authentication';
-// import ContactPage from 'pages/ContactPage/ContactPage';
-import HomePage from 'pages/HomePage/HomePage';
+import ContactPage from 'pages/ContactPage/ContactPage';
+import Home from 'pages/Home/Home';
 
 function App() {
   return (
     <>
       <Routes>
         <Route end path="/" element={<AppBar />}>
-          {/* <Route index element={<HomePage />} /> */}
+          <Route index element={<Home />} />
           <Route path="authentication" element={<AuthenticationPage />} />
-          <Route path="contacts" element={<HomePage />} />
+          <Route path="contacts" element={<ContactPage />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Route>
       </Routes>
