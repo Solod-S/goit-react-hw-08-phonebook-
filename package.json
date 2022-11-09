@@ -1,8 +1,8 @@
 {
-  "name": "goit-react-hw-08-phonebook",
+  "name": "goit-react-hw-08-phonebook-",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://Solod-S.github.io/goit-react-hw-08-phonebook",
+  "homepage": "https://Solod-S.github.io/goit-react-hw-08-phonebook-",
   "dependencies": {
     "@csstools/normalize.css": "^12.0.0",
     "@redux-devtools/extension": "^3.2.3",
@@ -32,12 +32,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Solod-S/goit-react-hw-08-phonebook.git"
+    "url": "git+https://github.com/Solod-S/goit-react-hw-08-phonebook-.git"
   },
   "author": "Solod S.",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Solod-S/goit-react-hw-08-phonebook/issues"
+    "url": "https://github.com/Solod-S/goit-react-hw-08-phonebook-/issues"
   },
   "scripts": {
     "start": "react-scripts start",
