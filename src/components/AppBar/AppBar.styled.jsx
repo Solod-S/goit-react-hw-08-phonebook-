@@ -1,13 +1,13 @@
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
-export const StyledLink = styled(NavLink)`
+export const Link = styled(NavLink)`
   position: relative;
   text-decoration: none;
+  font-size: 20px;
   font-weight: 700;
   padding: 20px;
   color: ${p => p.theme.colors.primaryText};
-
   transition: color 0.2s ease-in-out;
   ::after {
     content: '';
@@ -31,14 +31,14 @@ export const StyledLink = styled(NavLink)`
   }
 `;
 
-export const StyledHeader = styled.header`
-  margin-bottom: 20px;
+export const Header = styled.header`
+  margin-bottom: 60px;
   height: 60px;
   padding: 0 10px;
   background-color: #444444;
 `;
 
-export const StyledNav = styled.nav`
+export const Nav = styled.nav`
   display: flex;
   align-items: baseline;
   justify-content: center;

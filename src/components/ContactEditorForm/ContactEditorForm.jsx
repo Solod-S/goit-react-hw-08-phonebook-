@@ -1,12 +1,12 @@
 import { Formik } from 'formik';
 
 import {
-  ContactsForm,
-  ListForContactsForm,
-  ItemsForContactsForm,
-  InputForContactsForm,
-  LabelForContactsForm,
-  ButtonForContactsForm,
+  ForM,
+  List,
+  Items,
+  Input,
+  Label,
+  Button,
 } from './ContactEditorForm.styled';
 import PropTypes from 'prop-types';
 export const ContactEditorForm = ({
@@ -22,21 +22,21 @@ export const ContactEditorForm = ({
     <>
       <Formik initialValues={initialValues} onSubmit={handleSubmit}>
         {({ isSubmitting }) => (
-          <ContactsForm>
-            <ListForContactsForm>
-              <ItemsForContactsForm>
-                <LabelForContactsForm>Name</LabelForContactsForm>
-                <InputForContactsForm name="name" type="text" />
-              </ItemsForContactsForm>
-              <ItemsForContactsForm>
-                <LabelForContactsForm>Number</LabelForContactsForm>
-                <InputForContactsForm name="number" type="text" />
-              </ItemsForContactsForm>
-            </ListForContactsForm>
-            <ButtonForContactsForm type="submit" disabled={isSubmitting}>
+          <ForM>
+            <List>
+              <Items>
+                <Label htmlFor="name">Name</Label>
+                <Input name="name" type="text" id="name" />
+              </Items>
+              <Items>
+                <Label htmlFor="number">Number</Label>
+                <Input name="number" type="text" id="number" />
+              </Items>
+            </List>
+            <Button type="submit" disabled={isSubmitting}>
               Saving
-            </ButtonForContactsForm>
-          </ContactsForm>
+            </Button>
+          </ForM>
         )}
       </Formik>
     </>

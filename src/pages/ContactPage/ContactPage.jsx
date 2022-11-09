@@ -5,7 +5,7 @@ import {
   Section,
   ImgLeft,
   ImgRigth,
-} from './Homepage.styled';
+} from './ContactPage.styled';
 
 import ContactForm from 'components/ContactForm/ContactForm';
 import ContactList from 'components/ContactList/ContactList';
@@ -16,23 +16,23 @@ import image2 from '../../img/right.png';
 import { Box } from 'components/Box/Box';
 import { useSelector } from 'react-redux';
 
-const HomePage = () => {
+const ContactPage = () => {
   const modalIsActive = useSelector(state => state.modal.isActive);
 
   return (
     <Box display="flex" justifyContent="center">
       <ImgLeft src={image} />
-      {/* <Section>
+      <Section>
         {modalIsActive && <EditContactModal />}
         <MainHeader>Phonebook</MainHeader>
         <ContactForm />
         <Header>Contacts</Header>
         <Filter />
         <ContactList />
-      </Section> */}
+      </Section>
       <ImgRigth src={image2} />
     </Box>
   );
 };
 
-export default HomePage;
+export default ContactPage;

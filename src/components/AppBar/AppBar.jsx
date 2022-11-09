@@ -1,20 +1,28 @@
 // import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
-import { StyledHeader, StyledLink, StyledNav } from './AppBar.styled.jsx';
-
+import { Header, Link, Nav } from './AppBar.styled.jsx';
+import { LogOut } from 'components/LogOut/LogOut.jsx';
 import { Box } from 'components/Box/Box';
-
+import { useSelector } from 'react-redux';
 export const AppBar = () => {
+  const authPassed = useSelector(state => state.token);
   return (
     <Box m="0 auto">
-      <StyledHeader id="up">
-        <StyledNav>
-          <StyledLink end="true" to="/">
+      <Header id="up">
+        <Nav>
+          <Link end="true" to="/">
             Home
-          </StyledLink>
-          <StyledLink to="authentication">Authentication</StyledLink>
-        </StyledNav>
-      </StyledHeader>
+          </Link>
+          {authPassed && (
+            <Link end="true" to="contacts">
+              Contacts
+            </Link>
+          )}
+
+          {!authPassed && <Link to="authentication">Authentication</Link>}
+          {authPassed && <LogOut />}
+        </Nav>
+      </Header>
       <Outlet />
     </Box>
   );

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-export const ItemsForContactsItem = styled.li`
+export const Item = styled.li`
   display: flex;
   /* flex-direction: column; */
   /* justify-content: space-between; */
@@ -10,18 +10,18 @@ export const ItemsForContactsItem = styled.li`
     margin-bottom: ${p => p.theme.space[3]}px;
   }
 `;
-export const NameForContactsItem = styled.p`
+export const Name = styled.p`
   font-family: ${p => p.theme.fontFamily.roboto};
   font-size: ${p => p.theme.fontSizes.s};
 `;
-export const NamberForContactsItem = styled.p`
+export const Number = styled.p`
   font-family: ${p => p.theme.fontFamily.roboto};
   font-size: ${p => p.theme.fontSizes.s};
   margin-left: auto;
 `;
-export const ButtonForDelete = styled.button`
+export const DeleteButton = styled.button`
   display: block;
-  padding: 5px;
+  padding: 10px;
   margin-left: ${p => p.theme.space[3]}px;
   border-radius: ${p => p.theme.radii.normal};
   outline: 1px solid black;
@@ -37,9 +37,9 @@ export const ButtonForDelete = styled.button`
     transform: scale(1.1);
   }
 `;
-export const ButtonForEdit = styled.button`
+export const EditButton = styled.button`
   display: block;
-  padding: 5px;
+  padding: 10px;
   margin-right: ${p => p.theme.space[3]}px;
   border-radius: ${p => p.theme.radii.normal};
   outline: 1px solid black;

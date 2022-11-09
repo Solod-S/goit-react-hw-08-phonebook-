@@ -1,10 +1,11 @@
 import 'react-toastify/dist/ReactToastify.css';
+import { useState } from 'react';
 import {
   AppHeader,
   MainAppHeader,
-  AppSection,
-  AppImgLeft,
-  AppImgRigth,
+  Section,
+  ImgLeft,
+  ImgRigth,
 } from './Authentication.sttyled';
 import { Registration } from 'components/Registration/Registration';
 import { LogIn } from 'components/LogIn/LogIn';
@@ -19,21 +20,25 @@ import { useSelector } from 'react-redux';
 
 const AuthenticationPage = () => {
   const modalIsActive = useSelector(state => state.modal.isActive);
-
+  const [logInToShown, setLogInToShown] = useState(true);
   return (
-    <Box display="flex" alignItems="end" justifyContent="center">
-      <AppImgLeft src={image} />
-      <AppSection>
-        <Registration />
-        <LogIn />
+    <Box display="flex" justifyContent="center">
+      <ImgLeft src={image} />
+      <ImgRigth src={image2} />
+      <Section>
+        {logInToShown ? (
+          <LogIn setLogInToShown={setLogInToShown} />
+        ) : (
+          <Registration setLogInToShown={setLogInToShown} />
+        )}
+
         {/* {modalIsActive && <EditContactModal />}
         <MainAppHeader>Phonebook</MainAppHeader>
         <ContactForm />
         <AppHeader>Contacts</AppHeader>
         <Filter />
         <ContactList /> */}
-      </AppSection>
-      <AppImgRigth src={image2} />
+      </Section>
     </Box>
   );
 };

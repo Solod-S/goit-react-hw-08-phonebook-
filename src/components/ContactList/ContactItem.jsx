@@ -6,11 +6,11 @@ import { RiDeleteBinLine, RiDeleteBinFill } from 'react-icons/ri';
 import { ToastContainer, Flip } from 'react-toastify';
 import { useDeleteContactMutation } from 'redux/contactSlice';
 import {
-  ItemsForContactsItem,
-  NameForContactsItem,
-  NamberForContactsItem,
-  ButtonForDelete,
-  ButtonForEdit,
+  Item,
+  Name,
+  Number,
+  DeleteButton,
+  EditButton,
 } from './ContactItem.styled';
 
 import { useDispatch } from 'react-redux';
@@ -27,15 +27,15 @@ const ContactItem = ({ id, name, number }) => {
     dispatch(toggle(id));
   };
   return (
-    <ItemsForContactsItem>
-      <ButtonForEdit type="button" onClick={() => handleEditClick(id)}>
+    <Item>
+      <EditButton type="button" onClick={() => handleEditClick(id)}>
         <FaUserEdit />
-      </ButtonForEdit>
-      <NameForContactsItem>{name}</NameForContactsItem>
-      <NamberForContactsItem>{number}</NamberForContactsItem>
-      <ButtonForDelete type="button" onClick={() => deleteContact(id)}>
+      </EditButton>
+      <Name>{name}</Name>
+      <Number>{number}</Number>
+      <DeleteButton type="button" onClick={() => deleteContact(id)}>
         {isLoading ? <RiDeleteBinFill /> : <RiDeleteBinLine />}
-      </ButtonForDelete>
+      </DeleteButton>
 
       <ToastContainer
         transition={Flip}
@@ -50,7 +50,7 @@ const ContactItem = ({ id, name, number }) => {
         draggable={false}
         pauseOnHover
       />
-    </ItemsForContactsItem>
+    </Item>
   );
 };
 export default ContactItem;

@@ -30,7 +30,7 @@ export let schemaAuth = yup.object().shape({
     .required(),
   password: yup
     .string()
-    .min(5, 'That doesnt looks like good password')
+    .min(7, 'That doesnt looks like good password')
     .typeError()
     .required(),
 });
@@ -43,7 +43,7 @@ export let schemaLogIn = yup.object().shape({
     .required(),
   password: yup
     .string()
-    .min(5, 'That doesnt looks like your password')
+    .min(7, 'That doesnt looks like your password')
     .typeError()
     .required(),
 });

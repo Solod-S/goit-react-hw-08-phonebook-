@@ -1,9 +1,9 @@
 import styled from 'styled-components';
-export const ContactFilter = styled.div`
+export const Wrapper = styled.div`
   width: 70%;
   margin-bottom: ${p => p.theme.space[5]}px;
 `;
-export const LabelForContactFilter = styled.label`
+export const Label = styled.label`
   display: block;
   color: ${p => p.theme.colors.primaryText};
   font-family: ${p => p.theme.fontFamily.roboto};
@@ -12,12 +12,13 @@ export const LabelForContactFilter = styled.label`
   cursor: pointer;
   margin-bottom: ${p => p.theme.space[3]}px;
 `;
-export const InputForContactFilter = styled.input`
+export const Input = styled.input`
   color: ${p => p.theme.colors.primaryText};
   font-family: ${p => p.theme.fontFamily.roboto};
   font-size: ${p => p.theme.fontSizes.m};
   width: 95%;
-  height: 20px;
+  padding-left: ${p => p.theme.space[3]}px;
+  height: 30px;
   cursor: pointer;
   transition: outline 250ms linear, color 250ms linear;
   :hover,

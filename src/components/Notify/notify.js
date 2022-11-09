@@ -44,4 +44,25 @@ export const notify = toShown => {
   if (toShown === 'wellcome') {
     return toast.success(' Wellcome!', notifictationOptions.success);
   }
+  if (toShown === 'errorRegistration') {
+    return toast.warn(
+      'This email address is already to be taken',
+      notifictationOptions.warn
+    );
+  }
+  if (toShown === 'logOut') {
+    return toast.warn('You have log Out', notifictationOptions.warn);
+  }
+  if (toShown === 'Upps') {
+    return toast.warn(
+      'Upps... please press F5 and try again',
+      notifictationOptions.warn
+    );
+  }
+  if (toShown === 'errorLogIn') {
+    return toast.warn(
+      'Please check your email or password and try again',
+      notifictationOptions.warn
+    );
+  }
 };
