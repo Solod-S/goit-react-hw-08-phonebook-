@@ -23,34 +23,14 @@ import {
   ChangeForm,
 } from './LogIn.styled';
 
-import { useGetContactsQuery, useAddContactMutation } from 'redux/contactSlice';
-
 export const LogIn = ({ setLogInToShown }) => {
   const [email] = useState('');
   const [password] = useState('');
-  const [logIn] = useLoginMutation();
+  const [logIn, { isLoading }] = useLoginMutation();
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  //   const { data: storeContact, error } = useGetContactsQuery();
-  //   const [addContact, { isLoading }] = useAddContactMutation();
-
-  //   const creatingContact = data => {
-  //     const namesInContacts = storeContact.map(contact => contact.name);
-  //     if (namesInContacts.includes(data.name)) {
-  //       alert(` ${data.name} is already in contacts`);
-  //       // если имя из входящих данных === имени в любом имеющемся контакте выдаем ошибку
-  //     } else {
-  //       try {
-  //         notify('addContact');
-  //         return addContact(data);
-  //       } catch (errorMsg) {
-  //         console.log(error);
-  //       }
-  //     }
-  //   };
 
   const handleSubmit = (values, actions) => {
-    // creatingContact(values);
     logIn(values)
       .unwrap()
       .then(data => {
@@ -61,7 +41,6 @@ export const LogIn = ({ setLogInToShown }) => {
       .catch(() => {
         notify('errorLogIn');
       });
-    // await navigate('/contacts');
     actions.resetForm();
   };
 
@@ -87,10 +66,7 @@ export const LogIn = ({ setLogInToShown }) => {
               <Error name="password" component="div" />
             </Items>
           </List>
-          <Button type="submit">
-            {/* {isLoading ? 'Loading...' : 'Add contact'} */}
-            LogIn
-          </Button>
+          <Button type="submit">{isLoading ? 'Loading...' : 'LogIn'}</Button>
           <ToastContainer
             transition={Flip}
             theme="dark"

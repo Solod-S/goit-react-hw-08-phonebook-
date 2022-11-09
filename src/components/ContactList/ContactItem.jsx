@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { notify } from 'components/Notify/notify';
-import { FaUserEdit } from 'react-icons/fa';
+// import { FaUserEdit } from 'react-icons/fa';
 import { RiDeleteBinLine, RiDeleteBinFill } from 'react-icons/ri';
 import { ToastContainer, Flip } from 'react-toastify';
 import { useDeleteContactMutation } from 'redux/contactSlice';
@@ -10,27 +10,27 @@ import {
   Name,
   Number,
   DeleteButton,
-  EditButton,
+  // EditButton,
 } from './ContactItem.styled';
 
-import { useDispatch } from 'react-redux';
-import { toggle } from 'redux/modalSlice';
+// import { useDispatch } from 'react-redux';
+// import { toggle } from 'redux/modalSlice';
 const ContactItem = ({ id, name, number }) => {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
   const [deleteMaterial, { isLoading }] = useDeleteContactMutation();
   const deleteContact = ContactId => {
     deleteMaterial(ContactId);
     notify('dellContact');
   };
-  const handleEditClick = id => {
-    dispatch(toggle(id));
-  };
+  // const handleEditClick = id => {
+  //   dispatch(toggle(id));
+  // };
   return (
     <Item>
-      <EditButton type="button" onClick={() => handleEditClick(id)}>
+      {/* <EditButton type="button" onClick={() => handleEditClick(id)}>
         <FaUserEdit />
-      </EditButton>
+      </EditButton> */}
       <Name>{name}</Name>
       <Number>{number}</Number>
       <DeleteButton type="button" onClick={() => deleteContact(id)}>

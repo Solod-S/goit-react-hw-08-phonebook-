@@ -4,6 +4,7 @@ import { useLogoutMutation } from 'redux/contactSlice';
 import { deleteToken } from 'redux/TokenSlice';
 import { deleteProfileData } from 'redux/ProfileSlice';
 import { notify } from 'components/Notify/notify';
+import { Name, Button, Wrapper } from './LogOut.styled';
 export const LogOut = () => {
   const dispatch = useDispatch();
   const token = useSelector(state => state.token);
@@ -23,11 +24,11 @@ export const LogOut = () => {
       });
   };
   return (
-    <div>
-      <p>{profileEmail}</p>
-      <button type="button" onClick={handleLogout}>
+    <Wrapper>
+      <Name>{profileEmail}</Name>
+      <Button type="button" onClick={handleLogout}>
         Logout
-      </button>
-    </div>
+      </Button>
+    </Wrapper>
   );
 };

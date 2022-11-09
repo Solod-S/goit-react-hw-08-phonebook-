@@ -1,4 +1,4 @@
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, Navigate } from 'react-router-dom';
 import { AppBar } from './AppBar/AppBar';
 import AuthenticationPage from 'pages/RegistrationPage/Authentication';
 import ContactPage from 'pages/ContactPage/ContactPage';
@@ -11,7 +11,7 @@ function App() {
           <Route index element={<HomePage />} />
           <Route path="authentication" element={<AuthenticationPage />} />
           <Route path="contacts" element={<ContactPage />} />
-          {/* <Route path="login" element={<LoginPage />} /> */}
+          <Route path="*" element={<Navigate to="/" replace />} />
         </Route>
       </Routes>
     </>
