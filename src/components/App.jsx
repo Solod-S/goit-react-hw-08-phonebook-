@@ -1,8 +1,8 @@
 import { Route, Routes } from 'react-router-dom';
 import { AppBar } from './AppBar/AppBar';
 import AuthenticationPage from 'pages/RegistrationPage/Authentication';
-
-import HomePage from 'pages/homePage/Homepage';
+import ContactPage from 'pages/ContactPage/ContactPage';
+import HomePage from 'pages/HomePage/Homepage';
 function App() {
   return (
     <>
@@ -10,6 +10,7 @@ function App() {
         <Route end path="/" element={<AppBar />}>
           <Route index element={<HomePage />} />
           <Route path="authentication" element={<AuthenticationPage />} />
+          <Route path="contacts" element={<ContactPage />} />
           {/* <Route path="login" element={<LoginPage />} /> */}
         </Route>
       </Routes>

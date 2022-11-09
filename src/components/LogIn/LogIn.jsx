@@ -1,26 +1,36 @@
 import React, { useState } from 'react';
 
 import { Formik } from 'formik';
-// import schemaLogIn from './schema';
 import { schemaLogIn } from 'components/ContactForm/schema';
 import { notify } from 'components/Notify/notify';
 import { ToastContainer, Flip } from 'react-toastify';
+import { useLoginMutation } from 'redux/contactSlice';
+import { useDispatch } from 'react-redux';
+import { createToken } from 'redux/TokenSlice';
+import { saveProfileData } from 'redux/ProfileSlice';
+import { useNavigate } from 'react-router-dom';
 import 'react-toastify/dist/ReactToastify.css';
 import {
-  UserLogIn,
-  ListForUserLogIn,
-  ItemsForUserLogIn,
-  LabelForUserLogIn,
-  InputForUserLogIn,
-  ButtonForUserLogIn,
-  ErrorForUserLogIn,
+  Title,
+  ForM,
+  List,
+  Items,
+  Label,
+  Input,
+  Button,
+  Error,
+  Text,
+  ChangeForm,
 } from './LogIn.styled';
 
 import { useGetContactsQuery, useAddContactMutation } from 'redux/contactSlice';
 
-export const LogIn = () => {
+export const LogIn = ({ setLogInToShown }) => {
   const [email] = useState('');
   const [password] = useState('');
+  const [logIn] = useLoginMutation();
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   //   const { data: storeContact, error } = useGetContactsQuery();
   //   const [addContact, { isLoading }] = useAddContactMutation();
 
@@ -41,49 +51,67 @@ export const LogIn = () => {
 
   const handleSubmit = (values, actions) => {
     // creatingContact(values);
-    console.log(values);
-    notify('wellcome');
+    logIn(values)
+      .unwrap()
+      .then(data => {
+        dispatch(createToken(data.token));
+        dispatch(saveProfileData(data.user));
+      })
+      .then(() => navigate('/contacts'))
+      .catch(() => {
+        notify('errorLogIn');
+      });
+    // await navigate('/contacts');
     actions.resetForm();
   };
 
   return (
-    <Formik
-      validationSchema={schemaLogIn}
-      initialValues={{ email, password }}
-      onSubmit={handleSubmit}
-    >
-      <UserLogIn autoComplete="off">
-        <ListForUserLogIn>
-          <ItemsForUserLogIn>
-            <LabelForUserLogIn>Email</LabelForUserLogIn>
+    <>
+      <Title>Sign In</Title>
+      <Formik
+        validationSchema={schemaLogIn}
+        initialValues={{ email, password }}
+        onSubmit={handleSubmit}
+      >
+        <ForM autoComplete="off">
+          <List>
+            <Items>
+              <Label htmlFor="email">Email</Label>
 
-            <InputForUserLogIn type="email" name="email" required />
-            <ErrorForUserLogIn name="email" component="div" />
-          </ItemsForUserLogIn>
-          <ItemsForUserLogIn>
-            <LabelForUserLogIn>Password</LabelForUserLogIn>
-            <InputForUserLogIn type="password" name="password" required />
-            <ErrorForUserLogIn name="password" component="div" />
-          </ItemsForUserLogIn>
-        </ListForUserLogIn>
-        <ButtonForUserLogIn type="submit">
-          {/* {isLoading ? 'Loading...' : 'Add contact'} */}
-          LogIn
-        </ButtonForUserLogIn>
-        <ToastContainer
-          transition={Flip}
-          theme="dark"
-          position="bottom-right"
-          autoClose={1000}
-          hideProgressBar={false}
-          newestOnTop={false}
-          closeOnClick
-          rtl={false}
-          pauseOnFocusLoss
-          draggable={false}
-          pauseOnHover
-        />
-      </UserLogIn>
-    </Formik>
+              <Input type="email" name="email" required id="email" />
+              <Error name="email" component="div" />
+            </Items>
+            <Items>
+              <Label htmlFor="password">Password</Label>
+              <Input type="password" name="password" required id="password" />
+              <Error name="password" component="div" />
+            </Items>
+          </List>
+          <Button type="submit">
+            {/* {isLoading ? 'Loading...' : 'Add contact'} */}
+            LogIn
+          </Button>
+          <ToastContainer
+            transition={Flip}
+            theme="dark"
+            position="bottom-right"
+            autoClose={1000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable={false}
+            pauseOnHover
+          />
+        </ForM>
+      </Formik>
+      <Text>
+        Don't have an account?{' '}
+        <ChangeForm type="button" onClick={() => setLogInToShown(false)}>
+          Sign Up
+        </ChangeForm>
+      </Text>
+    </>
   );
 };

@@ -6,13 +6,13 @@ import { notify } from 'components/Notify/notify';
 import { ToastContainer, Flip } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import {
-  ContactsForm,
-  ListForContactsForm,
-  ItemsForContactsForm,
-  LabelForContactsForm,
-  InputForContactsForm,
-  ButtonForContactsForm,
-  ErrorForContactsForm,
+  ForM,
+  List,
+  Items,
+  Label,
+  Input,
+  Button,
+  Error,
 } from './ContactForm.styled';
 
 import { useGetContactsQuery, useAddContactMutation } from 'redux/contactSlice';
@@ -50,23 +50,23 @@ function ContactForm() {
       initialValues={{ name, number }}
       onSubmit={handleSubmit}
     >
-      <ContactsForm autoComplete="off">
-        <ListForContactsForm>
-          <ItemsForContactsForm>
-            <LabelForContactsForm>Name</LabelForContactsForm>
+      <ForM autoComplete="off">
+        <List>
+          <Items>
+            <Label htmlFor="name">Name</Label>
 
-            <InputForContactsForm type="text" name="name" required />
-            <ErrorForContactsForm name="name" component="div" />
-          </ItemsForContactsForm>
-          <ItemsForContactsForm>
-            <LabelForContactsForm>Number</LabelForContactsForm>
-            <InputForContactsForm type="tel" name="number" required />
-            <ErrorForContactsForm name="number" component="div" />
-          </ItemsForContactsForm>
-        </ListForContactsForm>
-        <ButtonForContactsForm type="submit">
+            <Input type="text" name="name" required id="name" />
+            <Error name="name" component="div" />
+          </Items>
+          <Items>
+            <Label htmlFor="tel">Number</Label>
+            <Input type="tel" name="number" required id="tel" />
+            <Error name="number" component="div" />
+          </Items>
+        </List>
+        <Button type="submit">
           {isLoading ? 'Loading...' : 'Add contact'}
-        </ButtonForContactsForm>
+        </Button>
         <ToastContainer
           transition={Flip}
           theme="dark"
@@ -80,7 +80,7 @@ function ContactForm() {
           draggable={false}
           pauseOnHover
         />
-      </ContactsForm>
+      </ForM>
     </Formik>
   );
 }

@@ -1,10 +1,6 @@
 import React from 'react';
 
-import {
-  ContactFilter,
-  InputForContactFilter,
-  LabelForContactFilter,
-} from './Filter.styled';
+import { Wrapper, Input, Label } from './Filter.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { filter } from 'redux/filterSlice';
 
@@ -17,14 +13,15 @@ const Filter = () => {
   };
 
   return (
-    <ContactFilter>
-      <LabelForContactFilter>Find contacts by name</LabelForContactFilter>
-      <InputForContactFilter
+    <Wrapper>
+      <Label htmlFor="filter">Find contacts by name</Label>
+      <Input
         type="text"
         value={storeFilter}
         onChange={onChangeFilter}
+        id="filter"
       />
-    </ContactFilter>
+    </Wrapper>
   );
 };
 export default Filter;

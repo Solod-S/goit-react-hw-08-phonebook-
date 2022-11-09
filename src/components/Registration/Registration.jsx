@@ -6,15 +6,21 @@ import { schemaAuth } from 'components/ContactForm/schema';
 import { notify } from 'components/Notify/notify';
 import { ToastContainer, Flip } from 'react-toastify';
 import { useState } from 'react';
-
+import { useSignupMutation } from 'redux/contactSlice';
+import { useDispatch } from 'react-redux';
+import { createToken } from 'redux/TokenSlice';
+import { saveProfileData } from 'redux/ProfileSlice';
 import {
-  RegistrationForm,
-  ListForRegistrationForm,
-  ItemsForRegistrationForm,
-  LabelForRegistrationForm,
-  InputForRegistrationForm,
-  ButtonForRegistrationForm,
-  ErrorForRegistrationForm,
+  Title,
+  ForM,
+  List,
+  Items,
+  Label,
+  Input,
+  Button,
+  Error,
+  Text,
+  ChangeForm,
 } from './Registration.styled';
 
 // import { addToken } from 'components/redux/Actions';
@@ -22,14 +28,26 @@ import {
 // import { toast } from 'react-toastify';
 // import Cookies from 'js-cookie';
 
-export const Registration = () => {
+export const Registration = ({ setLogInToShown }) => {
   const [name] = useState('');
   const [password] = useState('');
   const [email] = useState('');
+  const navigate = useNavigate();
+  const [signUp, { isLoading }] = useSignupMutation();
+  const dispatch = useDispatch();
 
   const handleSubmit = (values, actions) => {
-    console.log(values);
-    notify('wellcome');
+    signUp(values)
+      .unwrap()
+      .then(data => {
+        dispatch(createToken(data.token));
+        dispatch(saveProfileData(data.user));
+      })
+      .then(() => navigate('/contacts'))
+      .catch(() => {
+        notify('errorRegistration');
+      });
+
     actions.resetForm();
   };
 
@@ -62,8 +80,6 @@ export const Registration = () => {
 
   return (
     <>
-      <h1>Sign up</h1>
-
       {/* <form
       //   onSubmit={handleSubmit}
       >
@@ -104,40 +120,37 @@ export const Registration = () => {
 
         <button type="submit">Sign up</button>
       </form> */}
-
+      <Title>Sign Up</Title>
       <Formik
         validationSchema={schemaAuth}
         initialValues={{ name, password, email }}
         onSubmit={handleSubmit}
       >
-        <RegistrationForm autoComplete="off">
-          <ListForRegistrationForm>
-            <ItemsForRegistrationForm>
-              <LabelForRegistrationForm>Email</LabelForRegistrationForm>
+        <ForM autoComplete="off">
+          <List>
+            <Items>
+              <Label htmlFor="email">Email</Label>
 
-              <InputForRegistrationForm type="email" name="email" required />
-              <ErrorForRegistrationForm name="email" component="div" />
-            </ItemsForRegistrationForm>
-            <ItemsForRegistrationForm>
-              <LabelForRegistrationForm>Name</LabelForRegistrationForm>
+              <Input type="email" name="email" required id="email" />
+              <Error name="email" component="div" />
+            </Items>
+            <Items>
+              <Label htmlFor="name">Name</Label>
 
-              <InputForRegistrationForm type="text" name="name" required />
-              <ErrorForRegistrationForm name="name" component="div" />
-            </ItemsForRegistrationForm>
-            <ItemsForRegistrationForm>
-              <LabelForRegistrationForm>Password</LabelForRegistrationForm>
-              <InputForRegistrationForm
-                type="password"
-                name="password"
-                required
-              />
-              <ErrorForRegistrationForm name="password" component="div" />
-            </ItemsForRegistrationForm>
-          </ListForRegistrationForm>
-          <ButtonForRegistrationForm type="submit">
-            Submit
+              <Input type="text" name="name" required id="name" />
+              <Error name="name" component="div" />
+            </Items>
+            <Items>
+              <Label htmlFor="password">Password</Label>
+              <Input type="password" name="password" required id="password" />
+              <Error name="password" component="div" />
+            </Items>
+          </List>
+          <Button type="submit">
+            {isLoading ? 'Loading...' : 'Submit'}
+
             {/* {isLoading ? 'Loading...' : 'Add contact'} */}
-          </ButtonForRegistrationForm>
+          </Button>
           <ToastContainer
             transition={Flip}
             theme="dark"
@@ -151,11 +164,14 @@ export const Registration = () => {
             draggable={false}
             pauseOnHover
           />
-        </RegistrationForm>
+        </ForM>
       </Formik>
-      <p>
-        already have an account? <button type="button">Sign In</button>
-      </p>
+      <Text>
+        Already have an account?{' '}
+        <ChangeForm type="button" onClick={() => setLogInToShown(true)}>
+          Sign In
+        </ChangeForm>
+      </Text>
     </>
   );
 };
