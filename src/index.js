@@ -19,7 +19,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         height="100vh"
         justifyContent="center"
       >
-        <BrowserRouter basename="goit-react-hw-08-phonebook">
+        <BrowserRouter basename="goit-react-hw-08-phonebook-">
           <Provider store={store}>
             <App />
           </Provider>
