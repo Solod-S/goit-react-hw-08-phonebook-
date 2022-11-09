@@ -10,11 +10,11 @@ export const Item = styled.li`
 `;
 export const Name = styled.p`
   font-family: ${p => p.theme.fontFamily.roboto};
-  font-size: ${p => p.theme.fontSizes.s};
+  font-size: ${p => p.theme.fontSizes.m};
 `;
 export const Number = styled.p`
   font-family: ${p => p.theme.fontFamily.roboto};
-  font-size: ${p => p.theme.fontSizes.s};
+  font-size: ${p => p.theme.fontSizes.m};
   margin-left: auto;
 `;
 export const DeleteButton = styled.button`
