@@ -4,6 +4,7 @@ import { Header, Link, Nav } from './AppBar.styled.jsx';
 import { LogOut } from 'components/LogOut/LogOut.jsx';
 import { Box } from 'components/Box/Box';
 import { useSelector } from 'react-redux';
+
 export const AppBar = () => {
   const authPassed = useSelector(state => state.token);
   return (
@@ -18,11 +19,11 @@ export const AppBar = () => {
               Contacts
             </Link>
           )}
-
           {!authPassed && <Link to="authentication">Authentication</Link>}
           {authPassed && <LogOut />}
         </Nav>
       </Header>
+
       <Outlet />
     </Box>
   );

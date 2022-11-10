@@ -12,6 +12,7 @@ function App() {
           <Route index element={<Home />} />
           <Route path="authentication" element={<AuthenticationPage />} />
           <Route path="contacts" element={<ContactPage />} />
+
           <Route path="*" element={<Navigate to="/" replace />} />
         </Route>
       </Routes>

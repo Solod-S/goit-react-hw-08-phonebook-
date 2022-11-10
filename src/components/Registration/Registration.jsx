@@ -32,9 +32,9 @@ export const Registration = ({ setLogInToShown }) => {
   const handleSubmit = (values, actions) => {
     signUp(values)
       .unwrap()
-      .then(data => {
-        dispatch(createToken(data.token));
-        dispatch(saveProfileData(data.user));
+      .then(({ token, user }) => {
+        dispatch(createToken(token));
+        dispatch(saveProfileData(user));
       })
       .then(() => navigate('/contacts'))
       .catch(() => {
