@@ -5,6 +5,14 @@ import { myFilterSlice } from './filterSlice';
 import { myModalSlice } from './modalSlice';
 import { myTokenSlice } from './TokenSlice';
 import { myProfileSlice } from './ProfileSlice';
+import persistReducer from 'redux-persist/es/persistReducer';
+import storage from 'redux-persist/lib/storage';
+const persistConfig = {
+  key: 'root',
+  storage,
+  whitelist: ['token'],
+};
+
 export const rootReduser = combineReducers({
   [myContactSlice.reducerPath]: myContactSlice.reducer,
   filter: myFilterSlice.reducer,
@@ -12,3 +20,7 @@ export const rootReduser = combineReducers({
   token: myTokenSlice.reducer,
   profile: myProfileSlice.reducer,
 });
+export const persistedContactReducer = persistReducer(
+  persistConfig,
+  rootReduser
+);

@@ -5,6 +5,7 @@ export const myContactSlice = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: 'https://connections-api.herokuapp.com',
     prepareHeaders: (headers, api) => {
+      // console.log(api.getState());
       const token = api.getState().token;
       if (token) {
         headers.set('Authorization', `Bearer ${token}`);
