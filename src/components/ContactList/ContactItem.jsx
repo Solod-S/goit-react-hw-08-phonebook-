@@ -34,7 +34,11 @@ const ContactItem = ({ id, name, number }) => {
       <Name>{name}</Name>
       <Number>{number}</Number>
       <DeleteButton type="button" onClick={() => deleteContact(id)}>
-        {isLoading ? <RiDeleteBinFill /> : <RiDeleteBinLine />}
+        {isLoading ? (
+          <RiDeleteBinFill size={22} />
+        ) : (
+          <RiDeleteBinLine size={22} />
+        )}
       </DeleteButton>
 
       <ToastContainer

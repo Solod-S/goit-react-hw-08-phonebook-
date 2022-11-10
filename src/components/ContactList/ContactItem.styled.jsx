@@ -19,7 +19,7 @@ export const Number = styled.p`
 `;
 export const DeleteButton = styled.button`
   display: block;
-  padding: 10px;
+  padding: 4px;
   margin-left: ${p => p.theme.space[3]}px;
   border-radius: ${p => p.theme.radii.normal};
   outline: 1px solid black;
