@@ -33,11 +33,11 @@ export const LogIn = ({ setLogInToShown }) => {
   const handleSubmit = (values, actions) => {
     logIn(values)
       .unwrap()
-      .then(data => {
-        dispatch(createToken(data.token));
-        dispatch(saveProfileData(data.user));
+      .then(({ token, user }) => {
+        dispatch(createToken(token));
+        dispatch(saveProfileData(user));
       })
-      .then(() => navigate('/contacts'))
+      .then(() => navigate('/'))
       .catch(() => {
         notify('errorLogIn');
       });

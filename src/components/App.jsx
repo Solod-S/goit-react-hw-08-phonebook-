@@ -3,15 +3,21 @@ import { AppBar } from './AppBar/AppBar';
 import AuthenticationPage from 'pages/Authentication/Authentication';
 import ContactPage from 'pages/ContactPage/ContactPage';
 import Home from 'pages/Home/Home';
-
+import PrivateRoute from './PrivateRoute/PrivateRoute';
+import PublicRoute from './PublicRoute/PublicRoute';
 function App() {
   return (
     <>
       <Routes>
         <Route end path="/" element={<AppBar />}>
           <Route index element={<Home />} />
-          <Route path="authentication" element={<AuthenticationPage />} />
-          <Route path="contacts" element={<ContactPage />} />
+
+          <Route element={<PrivateRoute />}>
+            <Route path="contacts" element={<ContactPage />} />
+          </Route>
+          <Route element={<PublicRoute />}>
+            <Route path="authentication" element={<AuthenticationPage />} />
+          </Route>
           <Route path="*" element={<Navigate to="/" replace />} />
         </Route>
       </Routes>
