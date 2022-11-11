@@ -37,7 +37,7 @@ export const LogIn = ({ setLogInToShown }) => {
         dispatch(createToken(token));
         dispatch(saveProfileData(user));
       })
-      .then(() => navigate('/contacts'))
+      .then(() => navigate('/'))
       .catch(() => {
         notify('errorLogIn');
       });
