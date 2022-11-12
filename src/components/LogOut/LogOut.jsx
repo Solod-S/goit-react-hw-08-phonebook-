@@ -11,7 +11,7 @@ export const LogOut = () => {
   const navigate = useNavigate();
   const [logout] = useLogoutMutation();
   const profileEmail = useSelector(state => state.profile.email);
-  const handleLogout = async () => {
+  const handleLogout = () => {
     logout(token)
       .then(() => {
         dispatch(deleteProfileData());
