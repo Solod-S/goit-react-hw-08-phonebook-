@@ -41,7 +41,7 @@ export const myContactSlice = createApi({
     }),
     getContacts: builder.query({
       query: () => '/contacts',
-      providesTags: ['Contacts'],
+      providesTags: ['Contacts', 'User'],
     }),
     getContactById: builder.query({
       query: id => `/contacts/${id}`,
