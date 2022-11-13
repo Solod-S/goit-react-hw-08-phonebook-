@@ -3,8 +3,8 @@ import { AppBar } from './AppBar/AppBar';
 import AuthenticationPage from 'pages/Authentication/Authentication';
 import ContactPage from 'pages/ContactPage/ContactPage';
 import Home from 'pages/Home/Home';
-import PrivateRoute from './PrivateRoute/PrivateRoute';
-import PublicRoute from './PublicRoute/PublicRoute';
+import PrivateRoute from './Routes/PrivateRoute';
+import PublicRoute from './Routes/PublicRoute';
 function App() {
   return (
     <>
