@@ -1,6 +1,6 @@
 import React from 'react';
 import 'react-toastify/dist/ReactToastify.css';
-import ContactItem from './ContactItem';
+import ContactItem from '../ContactItem/ContactItem';
 import { useSelector } from 'react-redux';
 import { Wrapper, List, ErrorMsg } from './ContactList.styled';
 import { useGetContactsQuery } from 'redux/contactSlice';
