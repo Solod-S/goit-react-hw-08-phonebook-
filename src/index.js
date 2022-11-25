@@ -1,6 +1,5 @@
-import '@csstools/normalize.css';
-import 'Css/my_preset.css';
 import React from 'react';
+import { GlobalStyle } from 'Global.style.js';
 import ReactDOM from 'react-dom/client';
 import { Box } from './components/Box/Box.jsx';
 import App from './components/App.jsx';
@@ -24,6 +23,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           <Provider store={store}>
             <PersistGate loading={null} persistor={persistor}>
               <App />
+              <GlobalStyle />
             </PersistGate>
           </Provider>
         </BrowserRouter>
