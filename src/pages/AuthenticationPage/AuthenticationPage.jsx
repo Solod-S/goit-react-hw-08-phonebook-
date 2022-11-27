@@ -1,6 +1,6 @@
 import 'react-toastify/dist/ReactToastify.css';
 import { useState } from 'react';
-import { Section, ImgLeft, ImgRigth } from './Authentication.sttyled';
+import { Section, ImgLeft, ImgRigth } from './AuthenticationPage.sttyled';
 import { Registration } from 'components/Registration/Registration';
 import { LogIn } from 'components/LogIn/LogIn';
 import image from '../../img/left.png';

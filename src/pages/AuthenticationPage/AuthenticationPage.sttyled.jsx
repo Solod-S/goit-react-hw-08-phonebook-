@@ -9,11 +9,9 @@ export const Section = styled.section`
   flex-direction: column;
   align-items: center;
   width: 450px;
-  /* height: 336px; */
+
   box-shadow: -7px 7px 3px rgb(0 0 0 / 12%), 0px 1px 1px rgb(0 0 0 / 14%),
     0px 1px 3px rgb(0 0 0 / 12%), 0px 1px 1px rgb(0 0 0 / 14%);
-
-  /* outline: 2px solid black; */
 `;
 export const MainHeader = styled.h1`
   color: ${p => p.theme.colors.primaryText};
