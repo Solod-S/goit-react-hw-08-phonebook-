@@ -2,7 +2,7 @@ import { ContactEditorForm } from 'components/ContactEditorForm/ContactEditorFor
 
 import { Overlay, Modal, Button } from './EditContactModal.styled';
 import { LoaderSpiner } from 'components/Loader/Loader';
-import { notify } from 'components/Notify/notify';
+import { notify } from 'constants/notify';
 import { ToastContainer, Flip } from 'react-toastify';
 import {
   useGetContactByIdQuery,

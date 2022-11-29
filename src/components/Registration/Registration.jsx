@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { Formik } from 'formik';
-import { schemaAuth } from 'components/ContactForm/schema';
-import { notify } from 'components/Notify/notify';
+import { schemaAuth } from 'constants/schema';
+import { notify } from 'constants/notify';
 import { ToastContainer, Flip } from 'react-toastify';
 import { useState } from 'react';
 import { useSignupMutation } from 'redux/contactSlice';

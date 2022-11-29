@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 
 import { Formik } from 'formik';
-import { schemaLogIn } from 'components/ContactForm/schema';
-import { notify } from 'components/Notify/notify';
+import { schemaLogIn } from 'constants/schema';
+import { notify } from 'constants/notify';
 import { ToastContainer, Flip } from 'react-toastify';
 import { useLoginMutation } from 'redux/contactSlice';
 import { useDispatch } from 'react-redux';

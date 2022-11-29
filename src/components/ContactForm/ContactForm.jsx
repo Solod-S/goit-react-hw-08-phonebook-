@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 
 import { Formik } from 'formik';
-import { schemaContact } from './schema';
-import { notify } from 'components/Notify/notify';
+import { schemaContact } from '../../constants/schema';
+import { notify } from 'constants/notify';
 import { ToastContainer, Flip } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import {

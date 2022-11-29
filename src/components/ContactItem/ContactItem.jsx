@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { notify } from 'components/Notify/notify';
+import { notify } from 'constants/notify';
 // import { FaUserEdit } from 'react-icons/fa';
 import { RiDeleteBinLine, RiDeleteBinFill } from 'react-icons/ri';
 import { ToastContainer, Flip } from 'react-toastify';
