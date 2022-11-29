@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { Formik } from 'formik';
-import { schemaAuth } from 'constants/schema';
+import { schema } from 'constants/schema';
 import { notify } from 'constants/notify';
 import { ToastContainer, Flip } from 'react-toastify';
 import { useState } from 'react';
@@ -48,7 +48,7 @@ export const Registration = ({ setLogInToShown }) => {
     <>
       <Title>Sign Up</Title>
       <Formik
-        validationSchema={schemaAuth}
+        validationSchema={schema.auth}
         initialValues={{ name, password, email }}
         onSubmit={handleSubmit}
       >

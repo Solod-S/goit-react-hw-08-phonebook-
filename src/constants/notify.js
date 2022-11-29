@@ -1,5 +1,4 @@
 import { toast } from 'react-toastify';
-// import { notifictation } from 'constants/notification';
 
 const success = {
   position: 'bottom-right',

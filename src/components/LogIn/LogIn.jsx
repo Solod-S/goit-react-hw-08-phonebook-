@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 import { Formik } from 'formik';
-import { schemaLogIn } from 'constants/schema';
+import { schema } from 'constants/schema';
 import { notify } from 'constants/notify';
 import { ToastContainer, Flip } from 'react-toastify';
 import { useLoginMutation } from 'redux/contactSlice';
@@ -48,7 +48,7 @@ export const LogIn = ({ setLogInToShown }) => {
     <>
       <Title>Sign In</Title>
       <Formik
-        validationSchema={schemaLogIn}
+        validationSchema={schema.login}
         initialValues={{ email, password }}
         onSubmit={handleSubmit}
       >
