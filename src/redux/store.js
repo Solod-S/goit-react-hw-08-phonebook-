@@ -1,7 +1,4 @@
 import { configureStore } from '@reduxjs/toolkit';
-// import { rootReduser } from './rootReducer';
-import { myContactSlice } from './contactSlice';
-import { persistedContactReducer } from './rootReducer';
 import {
   persistStore,
   FLUSH,
@@ -11,6 +8,11 @@ import {
   PURGE,
   REGISTER,
 } from 'redux-persist';
+import { persistedContactReducer } from './rootReducer';
+
+// import { rootReduser } from './rootReducer';
+import { myContactSlice } from './contactSlice';
+
 export const store = configureStore({
   reducer: persistedContactReducer,
 

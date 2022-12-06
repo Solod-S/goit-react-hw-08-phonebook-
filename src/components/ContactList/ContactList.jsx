@@ -1,10 +1,12 @@
-import React from 'react';
-import 'react-toastify/dist/ReactToastify.css';
-import ContactItem from '../ContactItem/ContactItem';
 import { useSelector } from 'react-redux';
-import { Wrapper, List, ErrorMsg } from './ContactList.styled';
+
 import { useGetContactsQuery } from 'redux/contactSlice';
+
+import ContactItem from '../ContactItem/ContactItem';
 import { LoaderSpiner } from 'components/Loader/Loader';
+
+import { Wrapper, List, ErrorMsg } from './ContactList.styled';
+
 const ContactList = () => {
   const { data, isError, isFetching, isSuccess } = useGetContactsQuery('', {
     refetchOnFocus: true,
@@ -22,6 +24,7 @@ const ContactList = () => {
 
   const contactsIsFetched = data && !isFetching && !isError;
   const contactsIsNotFetched = isSuccess && !data.length;
+
   return (
     <Wrapper>
       {isFetching && <LoaderSpiner />}

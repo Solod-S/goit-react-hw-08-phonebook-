@@ -1,4 +1,11 @@
-// import 'react-toastify/dist/ReactToastify.css';
+import { useSelector } from 'react-redux';
+
+import { Box } from 'components/Box/Box';
+
+import image from '../../img/left.png';
+import image2 from '../../img/right.png';
+import logo from '../../img/app.png';
+
 import {
   MainHeader,
   Section,
@@ -9,18 +16,13 @@ import {
   Link,
 } from './Home.styled';
 
-import image from '../../img/left.png';
-import image2 from '../../img/right.png';
-import logo from '../../img/app.png';
-import { Box } from 'components/Box/Box';
-import { useSelector } from 'react-redux';
 const Home = () => {
   const token = useSelector(store => store.token);
   const profileEmail = useSelector(state => state.profile.email);
+
   return (
     <Box display="flex" justifyContent="center">
       <ImgLeft src={image} />
-
       {!token ? (
         <Section>
           <MainHeader>ContactBook</MainHeader>
@@ -42,7 +44,6 @@ const Home = () => {
           </Text>
         </Section>
       )}
-
       <ImgRigth src={image2} />
     </Box>
   );

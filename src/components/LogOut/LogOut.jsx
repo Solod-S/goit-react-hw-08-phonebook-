@@ -1,10 +1,14 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+
 import { useLogoutMutation } from 'redux/contactSlice';
 import { deleteToken } from 'redux/TokenSlice';
 import { deleteProfileData } from 'redux/ProfileSlice';
+
 import { notify } from 'constants/notify';
+
 import { Name, Button, Wrapper } from './LogOut.styled';
+
 export const LogOut = () => {
   const dispatch = useDispatch();
   const token = useSelector(state => state.token);
@@ -23,6 +27,7 @@ export const LogOut = () => {
         notify('Upps');
       });
   };
+
   return (
     <Wrapper>
       <Name>{profileEmail}</Name>

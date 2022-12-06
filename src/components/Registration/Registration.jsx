@@ -1,13 +1,16 @@
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { Formik } from 'formik';
+import { ToastContainer, Flip } from 'react-toastify';
+
 import { schema } from 'constants/schema';
 import { notify } from 'constants/notify';
-import { ToastContainer, Flip } from 'react-toastify';
-import { useState } from 'react';
+
 import { useSignupMutation } from 'redux/contactSlice';
-import { useDispatch } from 'react-redux';
 import { createToken } from 'redux/TokenSlice';
 import { saveProfileData } from 'redux/ProfileSlice';
+
 import {
   Title,
   ForM,

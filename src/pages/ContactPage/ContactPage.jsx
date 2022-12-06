@@ -1,4 +1,14 @@
-import 'react-toastify/dist/ReactToastify.css';
+// import { useSelector } from 'react-redux';
+
+import ContactForm from 'components/ContactForm/ContactForm';
+import ContactList from 'components/ContactList/ContactList';
+import { Box } from 'components/Box/Box';
+import Filter from 'components/Filter/Filter';
+// import { EditContactModal } from 'components/EditContactModal/EditContactModal';
+
+import image from '../../img/left.png';
+import image2 from '../../img/right.png';
+
 import {
   Header,
   MainHeader,
@@ -6,15 +16,6 @@ import {
   ImgLeft,
   ImgRigth,
 } from './ContactPage.styled';
-
-import ContactForm from 'components/ContactForm/ContactForm';
-import ContactList from 'components/ContactList/ContactList';
-// import { useSelector } from 'react-redux';
-// import { EditContactModal } from 'components/EditContactModal/EditContactModal';
-import Filter from 'components/Filter/Filter';
-import image from '../../img/left.png';
-import image2 from '../../img/right.png';
-import { Box } from 'components/Box/Box';
 
 const ContactPage = () => {
   // const modalIsActive = useSelector(state => state.modal.isActive);

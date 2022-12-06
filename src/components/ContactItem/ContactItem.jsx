@@ -1,10 +1,15 @@
-import React from 'react';
 import PropTypes from 'prop-types';
-import { notify } from 'constants/notify';
-// import { FaUserEdit } from 'react-icons/fa';
-import { RiDeleteBinLine, RiDeleteBinFill } from 'react-icons/ri';
 import { ToastContainer, Flip } from 'react-toastify';
+// import { useDispatch } from 'react-redux';
+
 import { useDeleteContactMutation } from 'redux/contactSlice';
+// import { toggle } from 'redux/modalSlice';
+
+import { RiDeleteBinLine, RiDeleteBinFill } from 'react-icons/ri';
+// import { FaUserEdit } from 'react-icons/fa';
+
+import { notify } from 'constants/notify';
+
 import {
   Item,
   Name,
@@ -13,11 +18,8 @@ import {
   // EditButton,
 } from './ContactItem.styled';
 
-// import { useDispatch } from 'react-redux';
-// import { toggle } from 'redux/modalSlice';
 const ContactItem = ({ id, name, number }) => {
   // const dispatch = useDispatch();
-
   const [deleteMaterial, { isLoading }] = useDeleteContactMutation();
   const deleteContact = ContactId => {
     deleteMaterial(ContactId);
@@ -26,6 +28,7 @@ const ContactItem = ({ id, name, number }) => {
   // const handleEditClick = id => {
   //   dispatch(toggle(id));
   // };
+
   return (
     <Item>
       {/* <EditButton type="button" onClick={() => handleEditClick(id)}>
@@ -57,10 +60,11 @@ const ContactItem = ({ id, name, number }) => {
     </Item>
   );
 };
-export default ContactItem;
 
 ContactItem.propTypes = {
   id: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   number: PropTypes.string.isRequired,
 };
+
+export default ContactItem;

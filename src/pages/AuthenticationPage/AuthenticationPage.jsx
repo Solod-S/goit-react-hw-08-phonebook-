@@ -1,14 +1,17 @@
-import 'react-toastify/dist/ReactToastify.css';
 import { useState } from 'react';
-import { Section, ImgLeft, ImgRigth } from './AuthenticationPage.sttyled';
+
 import { Registration } from 'components/Registration/Registration';
 import { LogIn } from 'components/LogIn/LogIn';
+import { Box } from 'components/Box/Box';
+
 import image from '../../img/left.png';
 import image2 from '../../img/right.png';
-import { Box } from 'components/Box/Box';
+
+import { Section, ImgLeft, ImgRigth } from './AuthenticationPage.sttyled';
 
 const AuthenticationPage = () => {
   const [logInToShown, setLogInToShown] = useState(true);
+
   return (
     <Box display="flex" justifyContent="center">
       <ImgLeft src={image} />

@@ -1,16 +1,19 @@
-import { ContactEditorForm } from 'components/ContactEditorForm/ContactEditorForm';
-
-import { Overlay, Modal, Button } from './EditContactModal.styled';
-import { LoaderSpiner } from 'components/Loader/Loader';
-import { notify } from 'constants/notify';
+import { createPortal } from 'react-dom';
+import { useSelector, useDispatch } from 'react-redux';
 import { ToastContainer, Flip } from 'react-toastify';
+
 import {
   useGetContactByIdQuery,
   useUpdateContactMutation,
 } from 'redux/contactSlice';
-import { useSelector, useDispatch } from 'react-redux';
 import { toggle } from 'redux/modalSlice';
-import { createPortal } from 'react-dom';
+
+import { ContactEditorForm } from '../ContactEditorForm/ContactEditorForm';
+import { LoaderSpiner } from '../Loader/Loader';
+
+import { notify } from 'constants/notify';
+
+import { Overlay, Modal, Button } from './EditContactModal.styled';
 
 export const EditContactModal = () => {
   const modal = useSelector(state => state.modal);
@@ -29,6 +32,7 @@ export const EditContactModal = () => {
     }
   };
   const modalRoot = document.querySelector('#modal-root');
+
   return createPortal(
     <Overlay>
       <Modal>

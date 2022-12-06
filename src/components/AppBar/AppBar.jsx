@@ -1,12 +1,14 @@
-// import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
-import { Header, Link, Nav } from './AppBar.styled.jsx';
+import { useSelector } from 'react-redux';
+
 import { LogOut } from 'components/LogOut/LogOut.jsx';
 import { Box } from 'components/Box/Box';
-import { useSelector } from 'react-redux';
+
+import { Header, Link, Nav } from './AppBar.styled.jsx';
 
 export const AppBar = () => {
   const authPassed = useSelector(state => state.token);
+
   return (
     <Box m="0 auto">
       <Header id="up">

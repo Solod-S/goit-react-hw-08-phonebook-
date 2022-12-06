@@ -1,10 +1,13 @@
 import { Route, Routes, Navigate } from 'react-router-dom';
+
+import PrivateRoute from '../routes/PrivateRoute';
+import PublicRoute from '../routes/PublicRoute';
+
 import { AppBar } from './AppBar/AppBar';
 import AuthenticationPage from 'pages/AuthenticationPage/AuthenticationPage';
 import ContactPage from 'pages/ContactPage/ContactPage';
 import Home from 'pages/HomePage/Home';
-import PrivateRoute from '../routes/PrivateRoute';
-import PublicRoute from '../routes/PublicRoute';
+
 function App() {
   return (
     <>

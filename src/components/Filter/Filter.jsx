@@ -1,9 +1,8 @@
-import React from 'react';
-
-import { Wrapper, Input, Label } from './Filter.styled';
 import { useDispatch, useSelector } from 'react-redux';
+
 import { filter } from 'redux/filterSlice';
 
+import { Wrapper, Input, Label } from './Filter.styled';
 const Filter = () => {
   const dipatch = useDispatch();
   const storeFilter = useSelector(state => state.filter);

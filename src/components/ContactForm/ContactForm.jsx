@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
-
+import { useState } from 'react';
 import { Formik } from 'formik';
+import { ToastContainer, Flip } from 'react-toastify';
+
+import { useGetContactsQuery, useAddContactMutation } from 'redux/contactSlice';
+
 import { schema } from 'constants/schema';
 import { notify } from 'constants/notify';
-import { ToastContainer, Flip } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+
 import {
   ForM,
   List,
@@ -14,8 +16,6 @@ import {
   Button,
   Error,
 } from './ContactForm.styled';
-
-import { useGetContactsQuery, useAddContactMutation } from 'redux/contactSlice';
 
 function ContactForm() {
   const [name] = useState('');
@@ -40,7 +40,6 @@ function ContactForm() {
 
   const handleSubmit = (values, actions) => {
     creatingContact(values);
-
     actions.resetForm();
   };
 

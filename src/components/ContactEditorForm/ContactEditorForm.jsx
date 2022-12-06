@@ -1,4 +1,5 @@
 import { Formik } from 'formik';
+import PropTypes from 'prop-types';
 
 import {
   ForM,
@@ -8,7 +9,7 @@ import {
   Label,
   Button,
 } from './ContactEditorForm.styled';
-import PropTypes from 'prop-types';
+
 export const ContactEditorForm = ({
   initialValues = { name: '', number: '' },
   onSubmit,
@@ -18,6 +19,7 @@ export const ContactEditorForm = ({
     actions.setSubmitting(false);
     actions.resetForm();
   };
+
   return (
     <>
       <Formik initialValues={initialValues} onSubmit={handleSubmit}>
@@ -42,6 +44,7 @@ export const ContactEditorForm = ({
     </>
   );
 };
+
 ContactEditorForm.propTypes = {
   initialValues: PropTypes.shape({
     name: PropTypes.string.isRequired,
