@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-export const myProfileSlice = createSlice({
+const profileSlice = createSlice({
   name: 'token',
   initialState: {},
   reducers: {
@@ -13,4 +13,5 @@ export const myProfileSlice = createSlice({
   },
 });
 
-export const { saveProfileData, deleteProfileData } = myProfileSlice.actions;
+export const { saveProfileData, deleteProfileData } = profileSlice.actions;
+export default profileSlice;

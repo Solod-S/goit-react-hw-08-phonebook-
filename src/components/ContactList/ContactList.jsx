@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux';
 
-import { useGetContactsQuery } from 'redux/contactSlice';
+import { useGetContactsQuery } from '../../redux/slices/contactSlice';
 
 import ContactItem from '../ContactItem/ContactItem';
 import { LoaderSpiner } from 'components/Loader/Loader';

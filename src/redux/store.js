@@ -11,7 +11,7 @@ import {
 import { persistedContactReducer } from './rootReducer';
 
 // import { rootReduser } from './rootReducer';
-import { myContactSlice } from './contactSlice';
+import { contactSlice } from './slices/';
 
 export const store = configureStore({
   reducer: persistedContactReducer,
@@ -22,7 +22,7 @@ export const store = configureStore({
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
     }),
-    myContactSlice.middleware,
+    contactSlice.middleware,
   ],
 });
 export const persistor = persistStore(store);

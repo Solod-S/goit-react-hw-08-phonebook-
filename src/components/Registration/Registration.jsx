@@ -7,9 +7,9 @@ import { ToastContainer, Flip } from 'react-toastify';
 import { schema } from 'constants/schema';
 import { notify } from 'constants/notify';
 
-import { useSignupMutation } from 'redux/contactSlice';
-import { createToken } from 'redux/TokenSlice';
-import { saveProfileData } from 'redux/ProfileSlice';
+import { useSignupMutation } from '../../redux/slices/contactSlice';
+import { createToken } from '../../redux/slices/tokenSlice';
+import { saveProfileData } from '../../redux/slices/profileSlice';
 
 import {
   Title,

@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { ToastContainer, Flip } from 'react-toastify';
 // import { useDispatch } from 'react-redux';
 
-import { useDeleteContactMutation } from 'redux/contactSlice';
+import { useDeleteContactMutation } from '../../redux/slices/contactSlice';
 // import { toggle } from 'redux/modalSlice';
 
 import { RiDeleteBinLine, RiDeleteBinFill } from 'react-icons/ri';

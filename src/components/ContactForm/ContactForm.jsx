@@ -2,7 +2,10 @@ import { useState } from 'react';
 import { Formik } from 'formik';
 import { ToastContainer, Flip } from 'react-toastify';
 
-import { useGetContactsQuery, useAddContactMutation } from 'redux/contactSlice';
+import {
+  useGetContactsQuery,
+  useAddContactMutation,
+} from '../../redux/slices/contactSlice';
 
 import { schema } from 'constants/schema';
 import { notify } from 'constants/notify';

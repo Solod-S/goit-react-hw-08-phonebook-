@@ -5,7 +5,7 @@ import { ToastContainer, Flip } from 'react-toastify';
 import {
   useGetContactByIdQuery,
   useUpdateContactMutation,
-} from 'redux/contactSlice';
+} from 'redux/slices/contactSlice';
 import { toggle } from 'redux/modalSlice';
 
 import { ContactEditorForm } from '../ContactEditorForm/ContactEditorForm';

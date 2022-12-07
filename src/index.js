@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 import { store, persistor } from './redux/store';
 import { PersistGate } from 'redux-persist/integration/react';
 
-import App from './components/App.jsx';
+import App from './components/App/App.jsx';
 import { Box } from './components/Box/Box.jsx';
 import { ThemeProvider } from 'styled-components';
 import { theme } from './constants/theme';

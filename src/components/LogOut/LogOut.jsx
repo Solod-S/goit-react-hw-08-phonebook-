@@ -1,9 +1,9 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
-import { useLogoutMutation } from 'redux/contactSlice';
-import { deleteToken } from 'redux/TokenSlice';
-import { deleteProfileData } from 'redux/ProfileSlice';
+import { useLogoutMutation } from '../../redux/slices/contactSlice';
+import { deleteToken } from '../../redux/slices/tokenSlice';
+import { deleteProfileData } from '../../redux/slices/profileSlice';
 
 import { notify } from 'constants/notify';
 

@@ -2,11 +2,18 @@ import { combineReducers } from '@reduxjs/toolkit';
 import persistReducer from 'redux-persist/es/persistReducer';
 import storage from 'redux-persist/lib/storage';
 
-import { myContactSlice } from './contactSlice';
-import { myFilterSlice } from './filterSlice';
-// import { myModalSlice } from './modalSlice';
-import { myTokenSlice } from './TokenSlice';
-import { myProfileSlice } from './ProfileSlice';
+import {
+  contactSlice,
+  filterSlice,
+  // modalSlice,
+  profileSlice,
+  tokenSlice,
+} from './slices';
+// import { contactSlice } from './slices/contactSlice';
+// import { filterSlice } from './slices/filterSlice';
+// // import { modalSlice } from './slices/modalSlice';
+// import { tokenSlice } from './slices/tokenSlice';
+// import { profileSlice } from './slices/profileSlice';
 
 const persistConfig = {
   key: 'root',
@@ -15,11 +22,11 @@ const persistConfig = {
 };
 
 export const rootReduser = combineReducers({
-  [myContactSlice.reducerPath]: myContactSlice.reducer,
-  filter: myFilterSlice.reducer,
-  // modal: myModalSlice.reducer,
-  token: myTokenSlice.reducer,
-  profile: myProfileSlice.reducer,
+  [contactSlice.reducerPath]: contactSlice.reducer,
+  filter: filterSlice.reducer,
+  // modal: modalSlice.reducer,
+  token: tokenSlice.reducer,
+  profile: profileSlice.reducer,
 });
 
 export const persistedContactReducer = persistReducer(

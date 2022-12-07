@@ -7,9 +7,9 @@ import { useDispatch } from 'react-redux';
 import { schema } from 'constants/schema';
 import { notify } from 'constants/notify';
 
-import { useLoginMutation } from 'redux/contactSlice';
-import { createToken } from 'redux/TokenSlice';
-import { saveProfileData } from 'redux/ProfileSlice';
+import { useLoginMutation } from '../../redux/slices/contactSlice';
+import { createToken } from '../../redux/slices/tokenSlice';
+import { saveProfileData } from '../../redux/slices/profileSlice';
 
 import 'react-toastify/dist/ReactToastify.css';
 import {
