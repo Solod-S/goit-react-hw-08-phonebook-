@@ -15,7 +15,8 @@ export const ContactEditorForm = ({
   onSubmit,
 }) => {
   const handleSubmit = async (values, actions) => {
-    await onSubmit(values);
+    // await onSubmit(values);
+    console.log(values);
     actions.setSubmitting(false);
     actions.resetForm();
   };

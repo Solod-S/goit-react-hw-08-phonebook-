@@ -21,7 +21,7 @@ const persistConfig = {
   whitelist: ['token', 'profile'],
 };
 
-export const rootReduser = combineReducers({
+const rootReduser = combineReducers({
   [contactSlice.reducerPath]: contactSlice.reducer,
   filter: filterSlice.reducer,
   // modal: modalSlice.reducer,
